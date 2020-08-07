@@ -10,7 +10,7 @@ hireDate date not null
 constraint [PK_Teacher] primary key clustered(
 [Id] asc))
 
-drop table if exists dbo.Grade
+
 
 create table dbo.Grade(
 [id] int identity(1, 1) not null,
