@@ -111,6 +111,39 @@ foreign key ([StudentID])
 references [dbo].[Student] ([ID])
 
 
+--Homework Requirement 6/6
+
+--List all possible combinations of Courses names and AchievementType names that can be passed by student
+
+select dbo.Course.[Name], dbo.AchievementType.[Name]
+from dbo.Course
+cross join dbo.AchievementType
+order by dbo.[Course].[Name]
+
+--List all Teachers that has any exam Grade
+
+select t.FirstName, t.LastName, g.Grade
+from dbo.Teacher as t
+inner join dbo.Grade as g
+on t.ID = g.TeacherID
+order by Grade desc
+
+--List all Teachers without exam Grade
+
+select t.FirstName, t.LastName, g.Grade
+from dbo.Teacher as t
+left join dbo.Grade as g
+on t.id = g.TeacherID
+where g.ID is null
+
+--List all Students without exam Grade (using Right Join)
+
+select s.FirstName, s.LastName, g.Grade
+from dbo.Grade as g
+right join dbo.Student as s
+on s.ID = g.StudentID
+where g.Grade is null
+
 
 
 
