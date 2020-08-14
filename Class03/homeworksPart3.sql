@@ -79,14 +79,14 @@ order by GradesPerTeach
 --Find the Grade Count, Maximal Grade, and the Average Grade per Student on all grades in the system. 
 --Filter only records where Maximal Grade is equal to Average Grade
 
-select s.FirstName + ' ' + s.LastName as [Name], count(*) as GradeCount, max(grade) as MxGrade, avg(grade) as AvgGrade
+select s.FirstName + ' ' + s.LastName as [Name], count(*) as GradeCount, max(grade) as MxGrade, avg(grade) as AvgGrade--, g.Grade
 from dbo.Grade as g
-inner join
+inner join 
 dbo.Student as s
 on s.ID = g.StudentID
-group by s.FirstName + ' ' + s.LastName  
+group by s.FirstName + ' ' + s.LastName--, g.Grade
 having max(grade) = avg(grade)
-
+--neznm zasho sakav da gji vidam i site ocenki po student :D
 
 
 --List Student First Name and Last Name next to the other details from previous query
