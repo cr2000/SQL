@@ -39,10 +39,13 @@ and FirstName like 'A%'
 
 select *
 from #tempTable
+
 --Retrieve the students from the table which last name is with 7 characters
+
 select *
 from #tempTable
 where len(lastName) = 7
+
 
 --Find all teachers whose FirstName length is less than 5 and
 --the first 3 characters of their FirstName and LastName are the same
